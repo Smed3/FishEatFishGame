@@ -30,7 +30,7 @@ namespace FishEatFish
             };
             foreach (Player player in players) player.Kill();
 
-            timer.Interval = 20;
+            timer.Interval = 10;
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
         }
@@ -99,19 +99,8 @@ namespace FishEatFish
 
         private void SkControl_KeyUp(object sender, KeyEventArgs e)
         {
-
             switch (e.KeyCode)
             {
-                case Keys.M:
-                    ManagerNPC.Max--;
-                    break;
-                case Keys.B:
-                    ManagerNPC.Max++;
-                    break;
-                case Keys.R:
-                    players[0].Kill();
-                    players[0].Revive();
-                    break;
                 case Keys.W:
                     if (players[0].Level < 1)
                         players[0].Revive();
@@ -123,14 +112,6 @@ namespace FishEatFish
                 case Keys.Up:
                     if (players[2].Level < 1)
                         players[2].Revive();
-                    break;
-                case Keys.Z:
-                    if (players[0].Level != 0)
-                        players[0].Level += 10;
-                    break;
-                case Keys.X:
-                    if (players[0].Level != 0)
-                        players[0].Level--;
                     break;
             }
         }

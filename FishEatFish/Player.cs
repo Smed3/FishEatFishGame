@@ -11,7 +11,7 @@ namespace FishEatFish
 {
     public class Player : Fish
     {
-        private readonly string name; // name of player fish
+        private readonly string name; // name of player's fish
         private readonly Keys[] keys = new Keys[4];
         private bool moveLeft, moveRight, moveUp, moveDown;
 
@@ -88,11 +88,11 @@ namespace FishEatFish
         {
             if (e.KeyCode == keys[0])
                 moveUp = false;
-            else if (e.KeyCode == keys[1])
+            if (e.KeyCode == keys[1])
                 moveLeft = false;
-            else if (e.KeyCode == keys[2])
+            if (e.KeyCode == keys[2])
                 moveDown = false;
-            else if (e.KeyCode == keys[3])
+            if (e.KeyCode == keys[3])
                 moveRight = false;
         }
 
@@ -100,11 +100,11 @@ namespace FishEatFish
         {
             if (e.KeyCode == keys[0])
                 moveUp = true;
-            else if (e.KeyCode == keys[1])
+            if (e.KeyCode == keys[1])
                 moveLeft = true;
-            else if (e.KeyCode == keys[2])
+            if (e.KeyCode == keys[2])
                 moveDown = true;
-            else if (e.KeyCode == keys[3])
+            if (e.KeyCode == keys[3])
                 moveRight = true;
         }
 

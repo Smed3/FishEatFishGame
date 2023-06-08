@@ -32,7 +32,6 @@ namespace FishEatFish
                 form.FormBorderStyle = FormBorderStyle.Sizable;
                 form.WindowState = FormWindowState.Maximized;
 
-                // Set the skControl size to its original size
                 form.skControl.Size = form.ClientSize;
             }
             else
@@ -91,7 +90,5 @@ namespace FishEatFish
             if (volumeTimer.Interval > 40)
                 volumeTimer.Interval -= 20;
         }
-
-
     }
 }

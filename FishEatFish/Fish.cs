@@ -11,7 +11,7 @@ namespace FishEatFish
     public class Fish
     {
         protected readonly Form1 form;
-        public SKBitmap image;
+        protected SKBitmap image;
 
         public SKBitmap Image
         {

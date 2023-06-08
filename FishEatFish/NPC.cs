@@ -75,5 +75,4 @@ namespace FishEatFish
             direction = null;
         }
     }
-
 }

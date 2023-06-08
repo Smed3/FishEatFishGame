@@ -12,19 +12,13 @@ namespace FishEatFish
     internal class ManagerNPC
     {
         private static readonly Random rnd = new Random();
-        private static int max = 10;
+        private static readonly int max = 10;
         private readonly Form1 form;
         private readonly List<NPC> fishList = new List<NPC>();
         private Normal normalDistribution;
         private int bombCount = 0;
 
         public NPC[] CreatedFishes => fishList.ToArray();
-
-        public static int Max
-        {
-            get { return max; }
-            set { max = value >= 0 ? value : 0; }///////////// Delete after debugging
-        }
 
         public ManagerNPC(Form1 form)
         {
@@ -69,21 +63,18 @@ namespace FishEatFish
 
         public int GenerateLevel()
         {
-            // Calculate the mean based on the player's level
             double mean = Player.MaxLevel - 1;
             normalDistribution = new Normal(mean, 3);
 
             // Generate a random fish level from the normal distribution
             double fishLevel = normalDistribution.Sample();
 
-            // Round the fish level to the nearest integer
             int roundedFishLevel = (int)Math.Round(fishLevel);
 
-            // Ensure the fish level is within valid bounds
             roundedFishLevel = Math.Max(1, roundedFishLevel); // Minimum fish level
             roundedFishLevel = Math.Min(100, roundedFishLevel); // Maximum fish level
 
-            // Create and return a fish of the determined level
+            // If proposed level of npc less than Player.MaxLevel then need to spawn random npc which level less than Player.MaxLevel
             return roundedFishLevel < Player.MaxLevel ? rnd.Next(1, (int)Player.MaxLevel) : roundedFishLevel;
         }
 
@@ -125,5 +116,4 @@ namespace FishEatFish
             fishList.Remove(fish);
         }
     }
-
 }

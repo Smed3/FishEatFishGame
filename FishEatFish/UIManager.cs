@@ -11,7 +11,7 @@ namespace FishEatFish
 {
     internal class UIManager
     {
-        private Form1 form;
+        private readonly Form1 form;
         private SKCanvas canvas;
         public bool isFullScreen;
         public bool isMenuVisible;
@@ -100,7 +100,7 @@ namespace FishEatFish
             };
             canvas.DrawRect(new SKRect(0, 0, form.ClientSize.Width, form.ClientSize.Height), overlayPaint);
             canvas.Restore();
-            // If options is visible then is need to be drawn and no more else
+            // If options are visible then they are need to be drawn and other elements aren't
             if (isOptionsVisible)
             {
                 DrawOptions();

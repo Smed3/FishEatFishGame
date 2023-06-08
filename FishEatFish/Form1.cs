@@ -21,9 +21,6 @@ namespace FishEatFish
         internal ManagerNPC managerNPC;
         internal Sound soundManager;
         internal InputManager inputManager;
-        // добавить экран смерти,
-        // подправить размеры нпс (ошибочная попытка съесть нпс), добавить бомбы и поработать с логикой присвоения уровня,
-        // , протестировать на других экранах,
 
         public Form1()
         {
@@ -58,14 +55,15 @@ namespace FishEatFish
                 int newWidth = (int)(this.Height * ratio);
                 int newHeight = (int)(this.Width / ratio);
 
-                // Adjust the form's size based on the calculated values
                 if (this.Width > newWidth)
                     this.Width = newWidth;
                 else
                     this.Height = newHeight;
             }
+
             if (WindowState == FormWindowState.Minimized)
                 uiManager.isMenuVisible = true;
+
             if (skControl != null)
                 skControl.Size = ClientSize;
             managerNPC?.UpdateNPCSize();

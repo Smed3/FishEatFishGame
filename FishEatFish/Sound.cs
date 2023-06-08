@@ -13,8 +13,8 @@ namespace FishEatFish
         private readonly Form1 form;
         private readonly Dictionary<string, WaveOut> sfxPlayers = new Dictionary<string, WaveOut>();
         private WaveOutEvent musicPlayer = new WaveOutEvent(); // Represents the audio output device
-        private AudioFileReader musicFile; // Represents the audio file to be played
-        private bool isPlaying = false; // Flag to track if the audio is currently playing
+        private AudioFileReader musicFile;
+        private bool isPlaying = false;
         private int currentMusicIndex = 0; // Index of the currently playing music
         private bool isNeedToShowAudioError = true;
         private float musicVolume;
@@ -64,10 +64,10 @@ namespace FishEatFish
 
             try
             {
-            musicPlayer.Init(musicFile);
-            musicPlayer.Play();
-            isPlaying = true;
-        }
+                musicPlayer.Init(musicFile);
+                musicPlayer.Play();
+                isPlaying = true;
+            }
             catch
             {
                 if(isNeedToShowAudioError)
@@ -82,13 +82,11 @@ namespace FishEatFish
         {
             if (isPlaying)
             {
-                // Stop playback and wait for the background thread to finish
                 musicPlayer.Stop();
 
                 // Unregister the PlaybackStopped event
                 musicPlayer.PlaybackStopped -= WaveOut_PlaybackStopped;
 
-                // Clean up resources
                 musicPlayer.Dispose();
                 musicFile.Dispose();
                 musicPlayer = null;
@@ -102,11 +100,8 @@ namespace FishEatFish
             // Switch to the next music track
             currentMusicIndex++;
             if (currentMusicIndex >= form.resourceManager.backMelodies.Length)
-            {
-                currentMusicIndex = 0; // Start from the beginning if reached the end
-            }
+                currentMusicIndex = 0;
 
-            // Play the next music track
             PlayBackgroundMusic();
         }
 
@@ -120,21 +115,19 @@ namespace FishEatFish
 
             string soundPath = form.resourceManager.soundPaths[soundName];
 
-            // Create a new WaveOut  and AudioFileReader
             WaveOut sfxPlayer = new WaveOut();
             AudioFileReader sfxFile = new AudioFileReader(soundPath);
             WaveChannel32 sfxChannel = new WaveChannel32(sfxFile);
 
-            // Connect the AudioFileReader to the WaveOutEvent
             sfxChannel.Volume = SfxVolume;
             sfxPlayer.Init(sfxChannel);
 
             try
             {
                 sfxPlayer.Init(sfxChannel);
-            sfxPlayer.Play();
-            sfxPlayers[soundName] = sfxPlayer;
-        }
+                sfxPlayer.Play();
+                sfxPlayers[soundName] = sfxPlayer;
+            }   
             catch
             {
                 if (isNeedToShowAudioError)

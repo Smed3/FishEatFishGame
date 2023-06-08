@@ -11,9 +11,9 @@ namespace FishEatFish
 {
     internal class ResourceManager
     {
-        public SKBitmap[] digitImages = new SKBitmap[10]; // stores images that represent digits
+        public SKBitmap[] digitImages = new SKBitmap[10];
         public Dictionary<string, SKBitmap> playersImages = new Dictionary<string, SKBitmap>();
-        public Dictionary<string, SKBitmap> npe = new Dictionary<string, SKBitmap>(); // stores images that represent npe
+        public Dictionary<string, SKBitmap> npe = new Dictionary<string, SKBitmap>();
         public Dictionary<string, SKRect> npeBounds = new Dictionary<string, SKRect>(); // stores bounds of each interactive npe
         public Dictionary<string, SKBitmap> images = new Dictionary<string, SKBitmap>(); // stores images that represent npcs
         public List<string> names = new List<string>(); // strores names of images that represent npcs
