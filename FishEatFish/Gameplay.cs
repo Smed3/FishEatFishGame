@@ -104,15 +104,23 @@ namespace FishEatFish
                 case Keys.W:
                     if (players[0].Level < 1)
                         players[0].Revive();
-                    break;
+                break;
                 case Keys.U:
                     if (players[1].Level < 1)
                         players[1].Revive();
-                    break;
+                break;
                 case Keys.Up:
                     if (players[2].Level < 1)
                         players[2].Revive();
-                    break;
+                break;
+                case Keys.Z:
+                    if (players[0].Level > 0.9)
+                        players[0].Level++;
+                break;
+                case Keys.X:
+                    if (players[0].Level > 0.9)
+                        players[0].Level--;
+                break;
             }
         }
     }

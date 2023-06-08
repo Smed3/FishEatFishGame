@@ -72,7 +72,7 @@ namespace FishEatFish
             int roundedFishLevel = (int)Math.Round(fishLevel);
 
             roundedFishLevel = Math.Max(1, roundedFishLevel); // Minimum fish level
-            roundedFishLevel = Math.Min(100, roundedFishLevel); // Maximum fish level
+            roundedFishLevel = Math.Min(200, roundedFishLevel); // Maximum fish level
 
             // If proposed level of npc less than Player.MaxLevel then need to spawn random npc which level less than Player.MaxLevel
             return roundedFishLevel < Player.MaxLevel ? rnd.Next(1, (int)Player.MaxLevel) : roundedFishLevel;
