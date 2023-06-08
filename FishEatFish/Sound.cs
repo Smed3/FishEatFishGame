@@ -64,10 +64,10 @@ namespace FishEatFish
 
             try
             {
-                musicPlayer.Init(musicFile);
-                musicPlayer.Play();
-                isPlaying = true;
-            }
+            musicPlayer.Init(musicFile);
+            musicPlayer.Play();
+            isPlaying = true;
+        }
             catch
             {
                 if(isNeedToShowAudioError)
@@ -127,13 +127,14 @@ namespace FishEatFish
 
             // Connect the AudioFileReader to the WaveOutEvent
             sfxChannel.Volume = SfxVolume;
+            sfxPlayer.Init(sfxChannel);
 
             try
             {
                 sfxPlayer.Init(sfxChannel);
-                sfxPlayer.Play();
-                sfxPlayers[soundName] = sfxPlayer;
-            }
+            sfxPlayer.Play();
+            sfxPlayers[soundName] = sfxPlayer;
+        }
             catch
             {
                 if (isNeedToShowAudioError)
