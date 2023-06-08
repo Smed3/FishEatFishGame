@@ -10,8 +10,8 @@ namespace FishEatFish
 {
     public class Sound : IDisposable
     {
-        private Form1 form;
-        private Dictionary<string, WaveOut> sfxPlayers = new Dictionary<string, WaveOut>();
+        private readonly Form1 form;
+        private readonly Dictionary<string, WaveOut> sfxPlayers = new Dictionary<string, WaveOut>();
         private WaveOutEvent musicPlayer = new WaveOutEvent(); // Represents the audio output device
         private AudioFileReader musicFile; // Represents the audio file to be played
         private bool isPlaying = false; // Flag to track if the audio is currently playing
@@ -64,10 +64,10 @@ namespace FishEatFish
 
             try
             {
-                musicPlayer.Init(musicFile);
-                musicPlayer.Play();
-                isPlaying = true;
-            }
+            musicPlayer.Init(musicFile);
+            musicPlayer.Play();
+            isPlaying = true;
+        }
             catch
             {
                 if(isNeedToShowAudioError)
@@ -127,13 +127,14 @@ namespace FishEatFish
 
             // Connect the AudioFileReader to the WaveOutEvent
             sfxChannel.Volume = SfxVolume;
+            sfxPlayer.Init(sfxChannel);
 
             try
             {
                 sfxPlayer.Init(sfxChannel);
-                sfxPlayer.Play();
-                sfxPlayers[soundName] = sfxPlayer;
-            }
+            sfxPlayer.Play();
+            sfxPlayers[soundName] = sfxPlayer;
+        }
             catch
             {
                 if (isNeedToShowAudioError)

@@ -11,8 +11,8 @@ namespace FishEatFish
 {
     internal class GameUtility
     {
-        Form1 form;
-        private Random rnd = new Random();
+        private readonly Form1 form;
+        private readonly Random rnd = new Random();
         public Timer volumeTimer = new Timer();
         public MouseEventArgs mouseDown = new MouseEventArgs(MouseButtons.None, 0, 0, 0, 0);
 

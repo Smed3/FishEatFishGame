@@ -11,8 +11,8 @@ namespace FishEatFish
 {
     internal class Gameplay
     {
-        private Form1 form;
-        private Timer timer = new Timer();
+        private readonly Form1 form;
+        private readonly Timer timer = new Timer();
         public Player[] players = new Player[3];
 
         public Gameplay(Form1 form)
